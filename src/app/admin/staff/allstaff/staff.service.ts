@@ -1,35 +1,32 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
 import { Staff } from "./staff.model";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { UnsubscribeOnDestroyAdapter } from "src/app/shared/UnsubscribeOnDestroyAdapter";
+import {Observable} from "rxjs";
+import {User} from "./user.model";
+import {map} from "rxjs/operators";
+import {HttpClient} from "@angular/common/http";
 @Injectable()
-export class StaffService extends UnsubscribeOnDestroyAdapter {
-  private readonly API_URL = "assets/data/staff.json";
+export class StaffService {
+
+
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+
+  private readonly baseUrl = "http://localhost:8080/api/users";
+
   isTblLoading = true;
-  dataChange: BehaviorSubject<Staff[]> = new BehaviorSubject<Staff[]>([]);
   // Temporarily stores data from dialogs
   dialogData: any;
-  constructor(private httpClient: HttpClient) {
-    super();
-  }
-  get data(): Staff[] {
-    return this.dataChange.value;
-  }
+
+
   getDialogData() {
     return this.dialogData;
   }
   /** CRUD METHODS */
-  getAllStaffs(): void {
-    this.subs.sink = this.httpClient.get<Staff[]>(this.API_URL).subscribe(
-      (data) => {
-        this.isTblLoading = false;
-        this.dataChange.next(data);
-      },
-      (error: HttpErrorResponse) => {
-        this.isTblLoading = false;
-        console.log(error.name + " " + error.message);
-      }
+  getAllStaff(): Observable<User[]> {
+    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+      map(response => response._embedded.users)
     );
   }
   addStaff(staff: Staff): void {
@@ -64,4 +61,12 @@ export class StaffService extends UnsubscribeOnDestroyAdapter {
       }
     );*/
   }
+}
+
+
+
+interface GetResponse {
+  _embedded: {
+    users: User[];
+  };
 }
