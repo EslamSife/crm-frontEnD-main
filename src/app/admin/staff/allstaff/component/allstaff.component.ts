@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { StaffService } from "./staff.service";
+import { StaffService } from "../service/staff.service";
 import { HttpClient } from "@angular/common/http";
 import { MatPaginator } from "@angular/material/paginator";
-import { Staff } from "./staff.model";
+import { Staff } from "../model/staff.model";
 import { SelectionModel } from "@angular/cdk/collections";
-import {User} from "./user.model";
+import {User} from "../model/user.model";
 @Component({
   selector: "app-allstaff",
   templateUrl: "./allstaff.component.html",
@@ -66,6 +66,9 @@ export class AllstaffComponent implements OnInit {
     this.staffService.getAllStaff().subscribe(
       data => {
         this.users = data;
+        this.users.forEach((e) => {
+          console.log(e.email);
+        });
       }
     );
   }

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Staff } from "./staff.model";
+import { Staff } from "../model/staff.model";
 import {Observable} from "rxjs";
-import {User} from "./user.model";
+import {User} from "../model/user.model";
 import {map} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 @Injectable()

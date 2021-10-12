@@ -1,13 +1,13 @@
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Component, Inject } from "@angular/core";
-import { StaffService } from "../../staff.service";
+import { StaffService } from "../../service/staff.service";
 import {
   FormControl,
   Validators,
   FormGroup,
   FormBuilder,
 } from "@angular/forms";
-import { Staff } from "../../staff.model";
+import { Staff } from "../../model/staff.model";
 import { formatDate } from "@angular/common";
 @Component({
   selector: "app-form-dialog",
