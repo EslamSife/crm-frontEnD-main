@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { BookappointmentComponent } from "./bookappointment/bookappointment.component";
+import { BookappointmentComponent } from "./bookappointment/component/bookappointment.component";
 import { ViewappointmentComponent } from "./viewappointment/viewappointment.component";
 import { EditappointmentComponent } from "./editappointment/editappointment.component";
 import { Page404Component } from "./../../authentication/page404/page404.component";

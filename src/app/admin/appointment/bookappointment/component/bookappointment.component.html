@@ -1,0 +1,328 @@
+<style>
+  ::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+  }
+</style>
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Book Appointment</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item bcrumb-2">
+              <a href="#" onClick="return false;">Appointment</a>
+            </li>
+            <li class="breadcrumb-item active">Book</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+
+          <div class="body">
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+              <mat-step [stepControl]="customerForm">
+                <form [formGroup]="customerForm">
+                  <ng-template matStepLabel><strong>Customer</strong></ng-template>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>First name</mat-label>
+                        <input matInput formControlName="firstName" required>
+                        <mat-icon matSuffix>face</mat-icon>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="lastName">
+                        <mat-icon matSuffix>face</mat-icon>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Mobile</mat-label>
+                        <input matInput formControlName="mobile"  required>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                        <mat-icon matSuffix>email</mat-icon>
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput formControlName="address"></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button (click)="onCustomerRegister()" mat-raised-button matStepperNext color="primary"
+                            [disabled]="!customerForm.valid">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+
+
+
+
+              <mat-step [stepControl]="nutritionInfoForm">
+                <form [formGroup]="nutritionInfoForm" (click)="onPetRegister()">
+                  <ng-template matStepLabel><strong>Nutrition</strong></ng-template>
+
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Last Fed</mat-label>
+                        <input matInput formControlName="lastFed">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="diet">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+
+
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Food Type</mat-label>
+                        <input matInput formControlName="foodType">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Favorite Food</mat-label>
+                        <input matInput formControlName="favFood">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Dislike Food</mat-label>
+                        <input matInput formControlName="dislike">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button mat-raised-button matStepperPrevious color="warn" class="msr-2">Back</button>
+                    <button mat-raised-button matStepperNext color="primary"
+                            [disabled]="!nutritionInfoForm.valid">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+
+
+
+              <mat-step [stepControl]="problemsForm">
+                <form [formGroup]="problemsForm">
+                  <ng-template matStepLabel><strong>Problems</strong></ng-template>
+
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Previous Problem</mat-label>
+                        <textarea matInput formControlName="prevProblem"></textarea>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Current Problem</mat-label>
+                        <textarea matInput formControlName="currProblem"></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button mat-raised-button matStepperPrevious color="warn" class="msr-2">Back</button>
+                    <button mat-raised-button matStepperNext color="primary"
+                            [disabled]="!problemsForm.valid">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+
+              <mat-step [stepControl]="petStatusForm">
+                <form [formGroup]="petStatusForm">
+                  <ng-template matStepLabel><strong>Status</strong></ng-template>
+
+
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Attitude</mat-label>
+                        <input matInput formControlName="attitude">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Appetite</mat-label>
+                        <input matInput formControlName="appetite">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Thirst</mat-label>
+                        <input matInput formControlName="thirst">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+
+
+
+
+
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Urination</mat-label>
+                        <input matInput formControlName="urination">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Defecation</mat-label>
+                        <input matInput formControlName="defecation">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Vomiting</mat-label>
+                        <input matInput formControlName="vomiting">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+
+
+
+
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Respiratory Signs</mat-label>
+                        <input matInput formControlName="respiratorySigns">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Mobility</mat-label>
+                        <input matInput formControlName="mobility">
+                      </mat-form-field>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Behavior</mat-label>
+                        <input matInput formControlName="behavior">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+
+                  <div>
+                    <button mat-raised-button matStepperPrevious color="warn" class="msr-2">Back</button>
+                    <button mat-raised-button matStepperNext color="primary"
+                            [disabled]="!petStatusForm.valid">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+
+
+
+              <mat-step [stepControl]="servicesForm">
+                <form [formGroup]="servicesForm" (ngSubmit)="onSubmit()">
+                  <ng-template matStepLabel><strong>Service</strong></ng-template>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Services</mat-label>
+                    <mat-select formControlName="serviceName" required>
+                      <mat-option *ngFor="let service of services" [value]="service"  (onSelectionChange)="getServiceId(service)">
+                        {{service.serviceName}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="servicesForm.get('serviceName').hasError('required')">
+                      Select Any Service
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+
+
+
+
+                  <div>
+                    <button mat-raised-button matStepperPrevious color="warn" class="msr-2">Back</button>
+                    <button mat-raised-button matStepperNext color="primary"
+                            [disabled]="!servicesForm.valid">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+
+
+
+
+              <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                  <button mat-raised-button matStepperPrevious color="warn" class="msr-2">Back</button>
+                  <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+                </div>
+              </mat-step>
+            </mat-horizontal-stepper>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>

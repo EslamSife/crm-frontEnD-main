@@ -18,12 +18,14 @@ import { MaterialFileInputModule } from "ngx-material-file-input";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 import { AppointmentRoutingModule } from "./appointment-routing.module";
-import { BookappointmentComponent } from "./bookappointment/bookappointment.component";
+import { BookappointmentComponent } from "./bookappointment/component/bookappointment.component";
 import { EditappointmentComponent } from "./editappointment/editappointment.component";
 import { ViewappointmentComponent } from "./viewappointment/viewappointment.component";
 import { DeleteDialogComponent } from "./viewappointment/dialogs/delete/delete.component";
 import { FormDialogComponent } from "./viewappointment/dialogs/form-dialog/form-dialog.component";
 import { AppointmentService } from "./viewappointment/appointment.service";
+import {MatStepperModule} from "@angular/material/stepper";
+import {CdkStepperModule} from "@angular/cdk/stepper";
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { AppointmentService } from "./viewappointment/appointment.service";
     MaterialFileInputModule,
     MatDatepickerModule,
     MatProgressSpinnerModule,
+    MatStepperModule,
+    CdkStepperModule,
   ],
   providers: [AppointmentService],
 })

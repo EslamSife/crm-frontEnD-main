@@ -11,10 +11,7 @@ import {RoleType} from "../model/roleType.model";
 export class AddStaffComponent  implements OnInit {
   staffForm: FormGroup;
   hide3 = true;
-  agree3 = false;
-
   roles: RoleType[] = [];
-  selectedValue: any;
   mySelect = [];
 
 
