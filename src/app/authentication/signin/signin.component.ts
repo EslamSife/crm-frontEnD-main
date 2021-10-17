@@ -29,7 +29,7 @@ export class SigninComponent
 
   ngOnInit() {
     this.authForm = this.formBuilder.group({
-      username: ["admin@hospital.org", Validators.required],
+      username: ["admin@crm.org", Validators.required],
       password: ["admin@123", Validators.required],
     });
   }
@@ -37,11 +37,11 @@ export class SigninComponent
     return this.authForm.controls;
   }
   adminSet() {
-    this.authForm.get("username").setValue("admin@hospital.org");
+    this.authForm.get("username").setValue("admin@crm.org");
     this.authForm.get("password").setValue("admin@123");
   }
   doctorSet() {
-    this.authForm.get("username").setValue("doctor@hospital.org");
+    this.authForm.get("username").setValue("doctor@crm.org");
     this.authForm.get("password").setValue("doctor@123");
   }
   patientSet() {

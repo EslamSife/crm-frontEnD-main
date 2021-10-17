@@ -21,7 +21,7 @@
   {
     "id": "003",
     "img": "assets/images/user/user3.jpg",
-    "doctor": "Dr.Sarah Smith",
+    "doctor": "Dr.Eslam Sife",
     "email": "test@email.com",
     "date": "2018-02-13T14:22:18Z",
     "time": "11:30",
@@ -101,7 +101,7 @@
   {
     "id": "011",
     "img": "assets/images/user/user1.jpg",
-    "doctor": "Dr.Sarah Smith",
+    "doctor": "Dr.Eslam Sife",
     "email": "test@email.com",
     "date": "2018-02-21T14:22:18Z",
     "time": "10:18",
@@ -151,7 +151,7 @@
   {
     "id": "016",
     "img": "assets/images/user/user5.jpg",
-    "doctor": "Dr.Sarah Smith",
+    "doctor": "Dr.Eslam Sife",
     "email": "test@email.com",
     "date": "2018-02-15T14:22:18Z",
     "time": "10:18",

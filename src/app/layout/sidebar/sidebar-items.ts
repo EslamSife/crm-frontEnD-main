@@ -40,7 +40,7 @@ export const ROUTES: RouteInfo[] = [
         role: [""],
         submenu: [],
       },
-      {
+/*      {
         path: "/admin/dashboard/dashboard2",
         title: "MENUITEMS.HOME.LIST.DASHBOARD2",
         moduleName: "dashboard",
@@ -52,7 +52,7 @@ export const ROUTES: RouteInfo[] = [
         badgeClass: "",
         role: [""],
         submenu: [],
-      },
+      },*/
       {
         path: "/admin/dashboard/doctor-dashboard",
         title: "MENUITEMS.HOME.LIST.DOCTOR-DASHBOARD",
@@ -332,7 +332,7 @@ export const ROUTES: RouteInfo[] = [
       },
     ],
   },
-  {
+  /*{
     path: "",
     title: "MENUITEMS.ROOMS.TEXT",
     moduleName: "room",
@@ -384,7 +384,7 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
+  },*/
   {
     path: "",
     title: "MENUITEMS.PAYMENTS.TEXT",
@@ -624,7 +624,7 @@ export const ROUTES: RouteInfo[] = [
     role: ["Patient"],
     submenu: [],
   },
-  {
+  /*{
     path: "/apps/chat",
     title: "MENUITEMS.PATIENT.CHAT",
     moduleName: "apps",
@@ -649,11 +649,11 @@ export const ROUTES: RouteInfo[] = [
     badgeClass: "",
     role: ["Patient"],
     submenu: [],
-  },
+  },*/
 
   // Common Modules
 
-  {
+  /*{
     path: "",
     title: "-- Apps",
     moduleName: "",
@@ -704,8 +704,8 @@ export const ROUTES: RouteInfo[] = [
     badgeClass: "",
     role: ["Admin", "Doctor"],
     submenu: [],
-  },
-  {
+  }*/
+  /*{
     path: "",
     title: "Email",
     moduleName: "email",
@@ -757,8 +757,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  }*//*,*/
+  /*{
     path: "",
     title: "More Apps",
     moduleName: "apps",
@@ -823,8 +823,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+/*  {
     path: "",
     title: "Widgets",
     moduleName: "widget",
@@ -876,8 +876,8 @@ export const ROUTES: RouteInfo[] = [
     badgeClass: "",
     role: ["Admin"],
     submenu: [],
-  },
-  {
+  },*/
+ /* {
     path: "",
     title: "User Interface (UI)",
     moduleName: "ui",
@@ -1111,8 +1111,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+ /* {
     path: "",
     title: "Forms",
     moduleName: "forms",
@@ -1203,8 +1203,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+ /* {
     path: "",
     title: "Tables",
     moduleName: "tables",
@@ -1256,8 +1256,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+/*  {
     path: "",
     title: "Medias",
     moduleName: "media",
@@ -1283,8 +1283,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+/*  {
     path: "",
     title: "Charts",
     moduleName: "charts",
@@ -1362,11 +1362,11 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
+  },*/
   {
     path: "",
-    title: "Timeline",
-    moduleName: "timeline",
+    title: "Store",
+    moduleName: "store",
     iconType: "material-icons-two-tone",
     icon: "amp_stories",
     class: "menu-toggle",
@@ -1376,8 +1376,8 @@ export const ROUTES: RouteInfo[] = [
     role: ["Admin"],
     submenu: [
       {
-        path: "/timeline/timeline1",
-        title: "Timeline 1",
+        path: "",
+        title: "purchase",
         moduleName: "timeline",
         iconType: "",
         icon: "",
@@ -1388,7 +1388,7 @@ export const ROUTES: RouteInfo[] = [
         role: [""],
         submenu: [],
       },
-      {
+      /*{
         path: "/timeline/timeline2",
         title: "Timeline 2",
         moduleName: "timeline",
@@ -1400,10 +1400,10 @@ export const ROUTES: RouteInfo[] = [
         badgeClass: "",
         role: [""],
         submenu: [],
-      },
+      },*/
     ],
   },
-  {
+/*  {
     path: "",
     title: "Icons",
     moduleName: "icons",
@@ -1442,8 +1442,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+  /*{
     path: "",
     title: "Authentication",
     moduleName: "authentication",
@@ -1534,8 +1534,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+  /*{
     path: "",
     title: "Extra Pages",
     moduleName: "extra-pages",
@@ -1613,8 +1613,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+/*  {
     path: "",
     title: "Maps",
     moduleName: "maps",
@@ -1640,8 +1640,8 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
-  {
+  },*/
+  /*{
     path: "",
     title: "Multi level Menu",
     moduleName: "multilevel",
@@ -1720,5 +1720,5 @@ export const ROUTES: RouteInfo[] = [
         submenu: [],
       },
     ],
-  },
+  },*/
 ];

@@ -22,7 +22,7 @@ export class TaskComponent implements OnInit {
     {
       id: "1",
       img: "assets/images/user/user1.jpg",
-      name: "Sarah Smith",
+      name: "Eslam Sife",
       title: "Develop angular project",
       done: true,
       note: "note details",
@@ -102,7 +102,7 @@ export class TaskComponent implements OnInit {
     {
       id: "9",
       img: "assets/images/user/user9.jpg",
-      name: "Sarah Smith",
+      name: "Eslam Sife",
       title: "Java compile error",
       done: false,
       note: "note details",

@@ -22,8 +22,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   },
   {
     no: 2,
-    name: "Sarah Smith",
-    gender: "female",
+    name: "Eslam Sife",
+    gender: "male",
     email: "test@example.com",
     address: "9003 Lake Street Hinesville",
     mobile: 1234567890,

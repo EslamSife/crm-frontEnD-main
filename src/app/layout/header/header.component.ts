@@ -53,7 +53,7 @@ export class HeaderComponent
   notifications: any[] = [
     {
       userImg: "assets/images/user/user1.jpg",
-      userName: "Sarah Smith",
+      userName: "Eslam Sife",
       time: "14 mins ago",
       message: "Please check your mail",
     },
@@ -77,7 +77,7 @@ export class HeaderComponent
     },
     {
       userImg: "assets/images/user/user5.jpg",
-      userName: "Sarah Smith",
+      userName: "Eslam Sife",
       time: "14 mins ago",
       message: "Please check your mail",
     },
