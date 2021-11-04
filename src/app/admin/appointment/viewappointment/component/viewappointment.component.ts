@@ -1,19 +1,22 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { AppointmentService } from "./appointment.service";
+import { AppointmentService } from "../service/appointment.service";
 import { HttpClient } from "@angular/common/http";
 import { MatDialog } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
-import { Appointment } from "./appointment.model";
+import { Appointment } from "../model/appointment.model";
 import { DataSource } from "@angular/cdk/collections";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { BehaviorSubject, fromEvent, merge, Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { FormDialogComponent } from "./dialogs/form-dialog/form-dialog.component";
-import { DeleteDialogComponent } from "./dialogs/delete/delete.component";
+import { FormDialogComponent } from "../dialogs/form-dialog/form-dialog.component";
+import { DeleteDialogComponent } from "../dialogs/delete/delete.component";
 import { DateAdapter, MAT_DATE_LOCALE } from "@angular/material/core";
 import { SelectionModel } from "@angular/cdk/collections";
 import { UnsubscribeOnDestroyAdapter } from "src/app/shared/UnsubscribeOnDestroyAdapter";
+import {Ticket} from "../model/ticket";
+import {User} from "../../../staff/allstaff/model/user.model";
+import {TicketItem} from "../model/ticket-item";
 
 @Component({
   selector: "app-viewappointment",
@@ -21,23 +24,28 @@ import { UnsubscribeOnDestroyAdapter } from "src/app/shared/UnsubscribeOnDestroy
   styleUrls: ["./viewappointment.component.sass"],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: "en-GB" }],
 })
-export class ViewappointmentComponent
-  extends UnsubscribeOnDestroyAdapter
-  implements OnInit
-{
+export class ViewappointmentComponent extends UnsubscribeOnDestroyAdapter implements OnInit {
+
+
+
+  tickets: Ticket[];
+  ticketItems: TicketItem[];
+
   displayedColumns = [
     "select",
-    "img",
     "name",
     "email",
-    "gender",
     "date",
     "time",
     "mobile",
-    "doctor",
-    "injury",
+    "service",
     "actions",
   ];
+
+
+
+
+
   exampleDatabase: AppointmentService | null;
   dataSource: ExampleDataSource | null;
   selection = new SelectionModel<Appointment>(true, []);
@@ -196,18 +204,14 @@ export class ViewappointmentComponent
     this.paginator._changePageSize(this.paginator.pageSize);
   }
   public loadData() {
-    this.exampleDatabase = new AppointmentService(this.httpClient);
-    this.dataSource = new ExampleDataSource(
-      this.exampleDatabase,
-      this.paginator,
-      this.sort
-    );
-    fromEvent(this.filter.nativeElement, "keyup").subscribe(() => {
-      if (!this.dataSource) {
-        return;
+    this.appointmentService.getAllAppointments().subscribe(
+      data => {
+        this.ticketItems = data;
+        this.ticketItems.forEach((e) => {
+          console.log(JSON.stringify(e));
+        });
       }
-      this.dataSource.filter = this.filter.nativeElement.value;
-    });
+    );
   }
   showNotification(colorName, text, placementFrom, placementAlign) {
     this.snackBar.open(text, "", {
@@ -229,7 +233,7 @@ export class ExampleDataSource extends DataSource<Appointment> {
   filteredData: Appointment[] = [];
   renderedData: Appointment[] = [];
   constructor(
-    public exampleDatabase: AppointmentService,
+    private appointmentService: AppointmentService,
     public paginator: MatPaginator,
     public _sort: MatSort
   ) {
@@ -241,16 +245,16 @@ export class ExampleDataSource extends DataSource<Appointment> {
   connect(): Observable<Appointment[]> {
     // Listen for any changes in the base data, sorting, filtering, or pagination
     const displayDataChanges = [
-      this.exampleDatabase.dataChange,
+      this.appointmentService.dataChange,
       this._sort.sortChange,
       this.filterChange,
       this.paginator.page,
     ];
-    this.exampleDatabase.getAllAppointments();
+    this.appointmentService.getAllAppointments();
     return merge(...displayDataChanges).pipe(
       map(() => {
         // Filter data
-        this.filteredData = this.exampleDatabase.data
+        this.filteredData = this.appointmentService.data
           .slice()
           .filter((appointment: Appointment) => {
             const searchStr = (
@@ -311,3 +315,4 @@ export class ExampleDataSource extends DataSource<Appointment> {
     });
   }
 }
+

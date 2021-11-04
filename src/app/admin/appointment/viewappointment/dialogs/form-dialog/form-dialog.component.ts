@@ -1,13 +1,13 @@
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Component, Inject } from "@angular/core";
-import { AppointmentService } from "../../appointment.service";
+import { AppointmentService } from "../../service/appointment.service";
 import {
   FormControl,
   Validators,
   FormGroup,
   FormBuilder,
 } from "@angular/forms";
-import { Appointment } from "../../appointment.model";
+import { Appointment } from "../../model/appointment.model";
 import { MAT_DATE_LOCALE } from "@angular/material/core";
 import { formatDate } from "@angular/common";
 @Component({

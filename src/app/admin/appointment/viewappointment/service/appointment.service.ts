@@ -1,11 +1,15 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { Appointment } from "./appointment.model";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import {BehaviorSubject, Observable} from "rxjs";
+import { Appointment } from "../model/appointment.model";
+import { HttpClient } from "@angular/common/http";
 import { UnsubscribeOnDestroyAdapter } from "src/app/shared/UnsubscribeOnDestroyAdapter";
+import {map} from "rxjs/operators";
+import {Ticket} from "../model/ticket";
+import {TicketItem} from "../model/ticket-item";
 @Injectable()
 export class AppointmentService extends UnsubscribeOnDestroyAdapter {
   private readonly API_URL = "assets/data/appointment.json";
+  private readonly TICKETS_URL = "http://localhost:8080/api/appointment/ticket";
   isTblLoading = true;
   dataChange: BehaviorSubject<Appointment[]> = new BehaviorSubject<
     Appointment[]
@@ -22,7 +26,7 @@ export class AppointmentService extends UnsubscribeOnDestroyAdapter {
     return this.dialogData;
   }
   /** CRUD METHODS */
-  getAllAppointments(): void {
+ /* getAllAppointments(): void {
     this.subs.sink = this.httpClient.get<Appointment[]>(this.API_URL).subscribe(
       (data) => {
         this.isTblLoading = false;
@@ -33,7 +37,15 @@ export class AppointmentService extends UnsubscribeOnDestroyAdapter {
         console.log(error.name + " " + error.message);
       }
     );
+  }*/
+
+  getAllAppointments(): Observable<TicketItem[]> {
+    return this.httpClient.get<TicketItem[]>(this.TICKETS_URL);
   }
+
+
+
+
   addAppointment(appointment: Appointment): void {
     this.dialogData = appointment;
 
@@ -66,4 +78,9 @@ export class AppointmentService extends UnsubscribeOnDestroyAdapter {
       }
     );*/
   }
+}
+
+
+interface GetResponse {
+    tickets: Ticket[];
 }

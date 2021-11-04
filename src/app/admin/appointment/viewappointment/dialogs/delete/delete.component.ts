@@ -1,6 +1,6 @@
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Component, Inject } from "@angular/core";
-import { AppointmentService } from "../../appointment.service";
+import { AppointmentService } from "../../service/appointment.service";
 @Component({
   selector: "app-delete",
   templateUrl: "./delete.component.html",
